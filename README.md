@@ -11,6 +11,12 @@ geometry or toolpaths: pragmas, all 32 `params` keys, the `sqlar` embedded files
 (including the `CCV1` encrypted-G-code container), the binary `model_2` heightmap
 layout, `log`/`metadata`, and the legacy `DOCUMENT_VALUES` header.
 
+**→ [docs/GEOMETRY-TOOLPATHS.md](docs/GEOMETRY-TOOLPATHS.md)** — all five element
+types (`circle`, `rectangle`, `regular_polygon`, `path`, `text`) and all seven
+toolpath types with their fields, the shared bezier point model, the embedded
+tool object, and the depth-sign convention change between builds 843 and 853.
+Raw specimen JSON for every type lives in [`samples/`](../samples/).
+
 ## The two `.c2d` formats
 
 Contrary to what several sites claim, the *older* format is the readable one:
@@ -113,5 +119,5 @@ Opens cleanly in Carbide Create 853.
 - Not affiliated with Carbide 3D; the format is proprietary and undocumented, so
   details may change between builds. Everything here was verified empirically on
   build 843 files and build 853 software.
-- The `model` row and `toolpath_group` blob formats are only partially mapped.
-- Toolpath (`type='toolpath'`) JSON is not documented here (yet).
+- The `model` row payload is only partially mapped (empty-heightmap header decoded;
+  files with actual 3D model data not yet observed).
