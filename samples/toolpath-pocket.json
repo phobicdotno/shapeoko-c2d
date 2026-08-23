@@ -1,0 +1,57 @@
+{
+    "angle": 0,
+    "automatic_parameters": true,
+    "elements": [
+        {
+            "uuid": "{a9426701-6c1b-41dd-80c1-03489327ca7e}"
+        }
+    ],
+    "enable_ramping": false,
+    "enable_rest": false,
+    "enabled": true,
+    "end_depth": "2.540",
+    "name": "Pocket Toolpath 1",
+    "ramp_angle": 20,
+    "rest_diameter": 6.35,
+    "speeds": {
+        "feedrate": 1905,
+        "plungerate": 381,
+        "rpm": 18000
+    },
+    "start_depth": "0.000",
+    "stepdown": 1.5239999999999998,
+    "stepover": 3.175,
+    "stock_to_leave": 0.5,
+    "tolerance": 0.01,
+    "tool": {
+        "angle": 0,
+        "corner_radius": 0,
+        "diameter": 6.35,
+        "display_mm": false,
+        "finish_allowance": 0.508,
+        "flutes": 3,
+        "length": 19.049999999999997,
+        "model": "201",
+        "name": "",
+        "number": 201,
+        "overall_length": 3.175,
+        "plungerate": 381,
+        "read_only": true,
+        "slot_depth": 1.5239999999999998,
+        "slot_feedrate": 1905,
+        "slot_rpm": 18000,
+        "surfacing_feedrate": 1905,
+        "surfacing_rpm": 18000,
+        "surfacing_stepover": 10,
+        "type": 0,
+        "url": "https://shop.carbide3d.com/products/201-25-end-mill-cutter-qty-2",
+        "uuid": "Carbide 3D-201--",
+        "vendor": "Carbide 3D"
+    },
+    "toolpath_group": "{0fb27424-58f8-4a53-9052-18f156f4a330}",
+    "toolpath_layers": [
+    ],
+    "type": "pocket_toolpath",
+    "uuid": "{4de0b053-7d09-4b2a-89db-0df1ced5d0ba}",
+    "version": 1
+}
