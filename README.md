@@ -6,6 +6,11 @@ Shapeoko 3 XXL baseplate's 18 mounting holes into a CNC-ready design file.
 
 Verified against **Carbide Create build 853** (August 2026).
 
+**→ [docs/FORMAT.md](docs/FORMAT.md)** — deep dive into everything that is *not*
+geometry or toolpaths: pragmas, all 32 `params` keys, the `sqlar` embedded files
+(including the `CCV1` encrypted-G-code container), the binary `model_2` heightmap
+layout, `log`/`metadata`, and the legacy `DOCUMENT_VALUES` header.
+
 ## The two `.c2d` formats
 
 Contrary to what several sites claim, the *older* format is the readable one:
