@@ -1,0 +1,57 @@
+{
+    "angle": 20,
+    "automatic_parameters": true,
+    "elements": [
+        {
+            "uuid": "{a4b4dca5-9460-4869-b994-ecb598fd3b94}"
+        }
+    ],
+    "enabled": true,
+    "max_depth": "2.540",
+    "max_length": 30,
+    "max_overlap": 0.5,
+    "min_depth": "0.000",
+    "min_length": 15,
+    "min_overlap": 0.5,
+    "name": "Texture Toolpath 1",
+    "speeds": {
+        "feedrate": 1905,
+        "plungerate": 381,
+        "rpm": 18000
+    },
+    "start_depth": "0.000",
+    "stepover": 3.175,
+    "stepover_variation": 0.5,
+    "tolerance": 0.01,
+    "tool": {
+        "angle": 0,
+        "corner_radius": 0,
+        "diameter": 6.35,
+        "display_mm": false,
+        "finish_allowance": 0.508,
+        "flutes": 3,
+        "length": 19.049999999999997,
+        "model": "201",
+        "name": "",
+        "number": 201,
+        "overall_length": 3.175,
+        "plungerate": 381,
+        "read_only": true,
+        "slot_depth": 1.5239999999999998,
+        "slot_feedrate": 1905,
+        "slot_rpm": 18000,
+        "surfacing_feedrate": 1905,
+        "surfacing_rpm": 18000,
+        "surfacing_stepover": 10,
+        "type": 0,
+        "url": "https://shop.carbide3d.com/products/201-25-end-mill-cutter-qty-2",
+        "uuid": "Carbide 3D-201--",
+        "vendor": "Carbide 3D"
+    },
+    "toolpath_group": "{0fb27424-58f8-4a53-9052-18f156f4a330}",
+    "toolpath_layers": [
+    ],
+    "type": "texture_toolpath",
+    "uuid": "{0dbf8ad0-b35a-48bf-b573-ebd1dc2ce8da}",
+    "version": 1
+}
