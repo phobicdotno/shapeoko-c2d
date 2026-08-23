@@ -1,0 +1,65 @@
+{
+    "break_through": "0.000",
+    "cut_depth": 19.05,
+    "depth_per_pass": 1.524,
+    "elements": [
+        {
+            "uuid": "{beb06ae9-dd8e-43b3-a618-287aa6f70666}"
+        }
+    ],
+    "enable_finish_allowance": false,
+    "enable_finishing": false,
+    "enabled": true,
+    "finish_doc": 1,
+    "finish_speeds": {
+        "feedrate": 10,
+        "plungerate": 10,
+        "rpm": 1000
+    },
+    "flip_inside_outside": false,
+    "ignore_tabs": true,
+    "name": "Cutout 1",
+    "path_type": 0,
+    "ramp_angle": 0,
+    "slot_depth_per_pass": 0,
+    "speeds": {
+        "feedrate": 1905,
+        "plungerate": 381,
+        "rpm": 18000
+    },
+    "start_depth": "0.000",
+    "stock_to_leave": 0,
+    "tab_height": 6.35,
+    "tab_width": 127,
+    "tool": {
+        "angle": 0,
+        "corner_radius": 0,
+        "diameter": 6.35,
+        "display_mm": false,
+        "finish_allowance": 0.508,
+        "flutes": 3,
+        "length": 19.049999999999997,
+        "model": "201",
+        "name": "",
+        "number": 201,
+        "overall_length": 3.175,
+        "plungerate": 381,
+        "read_only": true,
+        "slot_depth": 1.5239999999999998,
+        "slot_feedrate": 1905,
+        "slot_rpm": 18000,
+        "surfacing_feedrate": 1905,
+        "surfacing_rpm": 18000,
+        "surfacing_stepover": 10,
+        "type": 0,
+        "url": "https://shop.carbide3d.com/products/201-25-end-mill-cutter-qty-2",
+        "uuid": "Carbide 3D-201--",
+        "vendor": "Carbide 3D"
+    },
+    "toolpath_group": "{0fb27424-58f8-4a53-9052-18f156f4a330}",
+    "toolpath_layers": [
+    ],
+    "type": "cutout",
+    "uuid": "{34559d90-26fa-4c93-9f6c-51ac1cd8011d}",
+    "version": 1
+}
