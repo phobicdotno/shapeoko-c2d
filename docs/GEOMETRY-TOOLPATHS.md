@@ -1,7 +1,9 @@
 # Elements & toolpaths: the `J1` payloads
 
 Decoded from a Carbide Create **build 853** file containing every element type and
-every toolpath type the UI offers (`samples/` holds the raw JSON of each).
+every toolpath type the UI offers — the specimen itself is in the repo as
+[`samples/CarbideCreateAllPossibilities.c2d`](../samples/CarbideCreateAllPossibilities.c2d),
+and `samples/` holds the extracted raw JSON of each type.
 Complements [FORMAT.md](FORMAT.md), which covers the container.
 
 ## Elements (`items.type = 'element'`, version `J1`)
