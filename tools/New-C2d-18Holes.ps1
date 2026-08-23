@@ -160,7 +160,7 @@ function CircleJson([double]$x,[double]$y,[double]$r,[string]$id){
 
 # --- 1) clone template ---
 $src=$args[0]; if(-not $src){ $src='Shapeoko-XXL-Wasteboard_v8.c2d' }
-$dst=$args[1]; if(-not $dst){ $dst='XXL-Baseplate-18-Mounting-Holes.c2d' }
+$dst=$args[1]; if(-not $dst){ $dst='Shapeoko-3-XXL-Baseplate-18-Mounting-Holes-No-Path.c2d' }
 Copy-Item $src $dst -Force
 Write-Output "cloned template -> $dst"
 
