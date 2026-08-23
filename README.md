@@ -1,12 +1,12 @@
 # shapeoko-c2d
 
 Reverse-engineering notes on Carbide Create's `.c2d` file format, plus a working
-generator that builds valid modern-format files from scratch â€” used here to put the
+generator that builds valid modern-format files from scratch — used here to put the
 Shapeoko 3 XXL baseplate's 18 mounting holes into a CNC-ready design file.
 
 Verified against **Carbide Create build 853** (August 2026).
 
-**â†’ [docs/FORMAT.md](docs/FORMAT.md)** â€” deep dive into everything that is *not*
+**→ [docs/FORMAT.md](docs/FORMAT.md)** — deep dive into everything that is *not*
 geometry or toolpaths: pragmas, all 32 `params` keys, the `sqlar` embedded files
 (including the `CCV1` encrypted-G-code container), the binary `model_2` heightmap
 layout, `log`/`metadata`, and the legacy `DOCUMENT_VALUES` header.
@@ -17,7 +17,7 @@ Contrary to what several sites claim, the *older* format is the readable one:
 
 | Era | Format | Identify by |
 |---|---|---|
-| CC â‰¤ v6 (build ~316) | **Plain indented JSON** | file starts with `{` |
+| CC ≤ v6 (build ~316) | **Plain indented JSON** | file starts with `{` |
 | CC v7/v8 (build 843+) | **SQLite 3 database** | file starts with `SQLite format 3` |
 
 CC 853 opens its own SQLite files and (some) legacy JSON files, but it **rejected a
@@ -60,7 +60,7 @@ Tables:
 
 ### Blob encoding
 
-`items.data` is **plain zlib** (header bytes `78 01` / `78 9C` â€” no Qt `qCompress`
+`items.data` is **plain zlib** (header bytes `78 01` / `78 9C` — no Qt `qCompress`
 4-byte length prefix). The `sz` column must equal the **uncompressed byte length**.
 Decompressed, every element is JSON.
 
@@ -69,7 +69,7 @@ Decompressed, every element is JSON.
 The modern format stores circles as full bezier paths: a `center`, five anchor
 `points` (relative to center: `(-r,0) (0,r) (r,0) (0,-r) (-r,0)` plus a `(0,0)`
 terminator), and `cp1`/`cp2` control-point arrays using the standard circle
-approximation constant **Îº = 0.5522847498307936 Â· r**. Also present: `behavior: 3`,
+approximation constant **κ = 0.5522847498307936 · r**. Also present: `behavior: 3`,
 `geometryType: "circle"`, `point_type: [0,3,3,3,3,4]`, `smooth: [1,1,1,1,1,1]`,
 an embedded `layer` object, `group_id`, `id` (`"{uuid}"`), `position`, `radius`,
 `tabs: []`.
@@ -79,13 +79,13 @@ an embedded `layer` object, `group_id`, `id` (`"{uuid}"`), `position`, `radius`,
 1. **Clone an existing v8 `.c2d`** as a template (guarantees every structural
    detail CC expects).
 2. `DELETE FROM items WHERE type IN ('element','toolpath')`; clear `log`.
-3. `UPDATE params` â€” board `width`/`height`/`thickness`, `num_toolpaths = 0`.
+3. `UPDATE params` — board `width`/`height`/`thickness`, `num_toolpaths = 0`.
 4. Blank stale renders: `UPDATE sqlar SET sz=0, data=x'' WHERE name IN ('all.svg','preview.svg','gcode.egc')`.
 5. `INSERT` your elements: fresh `{uuid}`, `type='element'`, `version='J1'`,
    `sz = len(json)`, `data = zlib(json)`.
 
 `tools/New-C2d-18Holes.ps1` implements this end-to-end in Windows PowerShell 5.1
-with **no dependencies** â€” SQLite access is P/Invoke against the OS-bundled
+with **no dependencies** — SQLite access is P/Invoke against the OS-bundled
 `C:\Windows\System32\winsqlite3.dll` (`tools/winsqlite.cs`), and the zlib stream is
 built as `78 9C` + .NET raw-deflate + big-endian Adler-32.
 
@@ -94,17 +94,17 @@ built as `78 9C` + .NET raw-deflate + big-endian Adler-32.
 Extracted from the vector layer of Carbide 3D's official drawing
 [`S3_XXL_Wasteboard.pdf`](https://carbide3d.com/files/S3_XXL_Wasteboard.pdf)
 (sheet 1, scale 0.70866 pt/mm, cross-checked against the ordinate dimensions).
-Spec: **Ã˜5.08 mm (0.20â€³) thru, âŒ´ Ã˜12.70 mm (0.50â€³) Ã— 6.35 mm deep**, 18 places,
-on the assembled 1066.8 Ã— 1003.3 mm two-half wasteboard, origin front-left:
+Spec: **Ø5.08 mm (0.20″) thru, ⌴ Ø12.70 mm (0.50″) × 6.35 mm deep**, 18 places,
+on the assembled 1066.8 × 1003.3 mm two-half wasteboard, origin front-left:
 
 | Row | Y (mm) | X positions (mm) |
 |---|---|---|
-| Front | 15.00 | 25.4 Â· 127.0 Â· 482.6 Â· 584.2 Â· 939.8 Â· 1041.4 |
-| Front-inner | 476.25 | 76.2 Â· 533.4 Â· 990.6 |
-| Back-inner | 527.05 | 76.2 Â· 533.4 Â· 990.6 |
-| Back | 988.30 | 25.4 Â· 127.0 Â· 482.6 Â· 584.2 Â· 939.8 Â· 1041.4 |
+| Front | 15.00 | 25.4 · 127.0 · 482.6 · 584.2 · 939.8 · 1041.4 |
+| Front-inner | 476.25 | 76.2 · 533.4 · 990.6 |
+| Back-inner | 527.05 | 76.2 · 533.4 · 990.6 |
+| Back | 988.30 | 25.4 · 127.0 · 482.6 · 584.2 · 939.8 · 1041.4 |
 
-`files/Shapeoko-3-XXL-Baseplate-18-Mounting-Holes-No-Path.c2d` is the generated result â€” each hole a
+`files/Shapeoko-3-XXL-Baseplate-18-Mounting-Holes-No-Path.c2d` is the generated result — each hole a
 concentric counterbore + through-hole circle pair, no toolpaths (add your own in CC).
 Opens cleanly in Carbide Create 853.
 
