@@ -1,0 +1,59 @@
+{
+    "automatic_parameters": true,
+    "climb": false,
+    "elements": [
+        {
+            "uuid": "{966b1f94-bbee-4ee0-b134-fd263dc6a043}"
+        }
+    ],
+    "enable_ramping": false,
+    "enabled": true,
+    "end_depth": "2.540",
+    "ignore_tabs": false,
+    "name": "Contour Toolpath 1",
+    "ofset_dir": -1,
+    "ramp_angle": 20,
+    "speeds": {
+        "feedrate": 1905,
+        "plungerate": 381,
+        "rpm": 18000
+    },
+    "start_depth": "0.000",
+    "stepdown": 1.5239999999999998,
+    "stepover": 3,
+    "stock_to_leave": 0,
+    "tab_height": 3,
+    "tab_width": 12,
+    "tolerance": 0.01,
+    "tool": {
+        "angle": 0,
+        "corner_radius": 0,
+        "diameter": 6.35,
+        "display_mm": false,
+        "finish_allowance": 0.508,
+        "flutes": 3,
+        "length": 19.049999999999997,
+        "model": "201",
+        "name": "",
+        "number": 201,
+        "overall_length": 3.175,
+        "plungerate": 381,
+        "read_only": true,
+        "slot_depth": 1.5239999999999998,
+        "slot_feedrate": 1905,
+        "slot_rpm": 18000,
+        "surfacing_feedrate": 1905,
+        "surfacing_rpm": 18000,
+        "surfacing_stepover": 10,
+        "type": 0,
+        "url": "https://shop.carbide3d.com/products/201-25-end-mill-cutter-qty-2",
+        "uuid": "Carbide 3D-201--",
+        "vendor": "Carbide 3D"
+    },
+    "toolpath_group": "{0fb27424-58f8-4a53-9052-18f156f4a330}",
+    "toolpath_layers": [
+    ],
+    "type": "contour",
+    "uuid": "{dd77aa3c-621a-4352-806e-7646eb7d455a}",
+    "version": 1
+}
