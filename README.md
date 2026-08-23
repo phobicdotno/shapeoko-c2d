@@ -17,6 +17,13 @@ toolpath types with their fields, the shared bezier point model, the embedded
 tool object, and the depth-sign convention change between builds 843 and 853.
 Raw specimen JSON for every type lives in [`samples/`](../samples/).
 
+**→ [docs/GCODE-AND-CRYPTO.md](docs/GCODE-AND-CRYPTO.md)** — from the Carbide
+Create binary: the two g-code paths (encrypted `gcode.egc` cache vs. the
+**plaintext `.nc`** that actually reaches Carbide Motion / the machine), the GRBL
+post-processor dialect documented for a compatible emitter, the CAM engine's move
+architecture, and the encrypted assets (`ccpro.db` is SEE `aes256-ofb`) — noted,
+not defeated, because every toolpath already embeds its own tool.
+
 ## The two `.c2d` formats
 
 Contrary to what several sites claim, the *older* format is the readable one:
