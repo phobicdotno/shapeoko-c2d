@@ -48,7 +48,7 @@ Tables:
 
 | Table | Contents |
 |---|---|
-| `params` | key/value document settings: `width`, `height`, `thickness`, `num_toolpaths`, `machine`, `build_num`, `version`, … |
+| `params` | key/value document settings: `width`, `height`, `thickness`, `num_toolpaths`, `machine`, `machine_type`, `material`, `version`, `build_num`, `minimum_build_num`, `minimum_carbide_motion_version`, `requires_pro`, `active_layer`, `display_mm`, `grid_enabled`, `grid_spacing`, `zero_x`, `zero_y`, `zero_z`, `retract`, `tiling_enabled`, `tile_margin_x`, `tile_overlap_y`, `tile_height`, `tile_current_index`, `background_visible`, `background_rotation`, `background_scale`, `background_position_x`, `background_position_y`, `background_opacity`, `show_notes` |
 | `items` | one row per design object: `uuid`, `name`, `type` (`layer` \| `element` \| `toolpath` \| `toolpath_group` \| `model`), `version` (`J1`), `sz`, `data` |
 | `sqlar` | auxiliary files: `preview.svg`, `all.svg`, `gcode.egc`, `background.png`, `notes.txt` |
 | `metadata`, `log` | bookkeeping |
