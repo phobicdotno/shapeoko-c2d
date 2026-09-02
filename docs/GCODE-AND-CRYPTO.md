@@ -1,4 +1,4 @@
-# G-code output, the Carbide Motion handoff, and encrypted assets
+﻿# G-code output, the Carbide Motion handoff, and encrypted assets
 
 Findings from the Carbide Create **build 853** macOS binary (`Carbide Create.app/
 Contents/MacOS/Carbide Create`, a Qt6 Mach-O) and its bundled `Resources/`.
@@ -22,6 +22,28 @@ Carbide Create produces toolpath g-code in two different places, and they are
 Carbide Motion (and the machine) is plain `.nc` g-code. A third-party tool can
 emit standard `.nc` and either hand it to Carbide Motion or stream it straight to
 the GRBL controller — no `.egc`, no Carbide Motion required.
+
+### Caveat: loading a `.c2d` *directly* into Carbide Motion (verified 2026-09)
+
+Carbide Motion (build ≥ 565, per the `minimum_carbide_motion_version` param) can
+open a `.c2d` file directly — and when it does, the *only* thing it uses is the
+`sqlar` `gcode.egc` blob. A generated `.c2d` with a blank/empty `gcode.egc`
+(the write recipe in [FORMAT.md](FORMAT.md) blanks it) opens **perfectly in
+Carbide Create** — all geometry renders, toolpaths recalculate — but Carbide
+Motion reports it as **not a valid file**.
+
+Two fixes:
+
+1. **Open the file in Carbide Create and hit Save once.** CC regenerates
+   `gcode.egc` (and `all.svg`/`preview.svg`) from the recalculated toolpaths.
+   The file then loads in Carbide Motion.
+2. Skip CM's `.c2d` path entirely: export/emit plain `.nc` and load that.
+
+A `.c2d` with **zero toolpaths** gets no `gcode.egc` row at all when CC saves it
+— that's normal, and such a file is design-only by definition.
+
+The `gcode.egc` blob is stored **uncompressed** in `sqlar` (`sz == length(data)`),
+magic `CCV1`, followed by encrypted bytes.
 
 ## The post-processor system
 
@@ -102,3 +124,4 @@ is not needed to read, edit, or re-cut a design. Build your own tool library.
 ```
 
 No `.egc`, no `ccpro.db`, no Carbide Motion in the critical path.
+
